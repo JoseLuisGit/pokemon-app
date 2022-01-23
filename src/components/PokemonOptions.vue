@@ -1,5 +1,5 @@
 <template>
-  <h2> Este es el componente de Pokemon </h2>
+  <h2>Options</h2>
 </template>
 
 <script>
