@@ -4,12 +4,12 @@
   </div>
   <div v-else>
     <h2> ¿Quien es este Pokemon? </h2>
-    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="true" />
-    <PokemonOptions :pokemons="pokemonsArr" />
+    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
+    <PokemonOptions :pokemons="pokemonsArr" @selection="getSelection" />
   </div>
 </template>
 
-<script>
+<script>    
 import PokemonPicture from '@/components/PokemonPicture.vue'
 import PokemonOptions from '@/components/PokemonOptions.vue'
 import getPokemonsOptions from '@/helpers/getPokemonsOptions'
@@ -18,7 +18,8 @@ export default {
   data(){
     return {
       pokemonsArr: [],
-      pokemon: null
+      pokemon: null,
+      showPokemon: false
     }
   },
   components: { 
@@ -33,6 +34,11 @@ export default {
 
       this.pokemon = this.pokemonsArr[ num ];
 
+    },
+    getSelection(pokemonId){
+      if(pokemonId === this.pokemon.id){
+        this.showPokemon = true;
+      }
     }
   },
   mounted(){
