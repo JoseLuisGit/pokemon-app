@@ -1,9 +1,10 @@
 <template>
   <div class="options-container">
     <ul>
-      <li v-for="pokemon in pokemons" 
-      :key="pokemon.id"
-      @click="$emit('selection', pokemon.id)"
+      <li
+        v-for="pokemon in pokemons"
+        :key="pokemon.id"
+        @click="$emit('selection', pokemon.id)"
       >
         {{ pokemon.name }}
       </li>
@@ -13,12 +14,12 @@
 
 <script>
 export default {
-  props:{
+  props: {
     pokemons: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
